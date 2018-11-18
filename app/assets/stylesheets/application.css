@@ -13,3 +13,74 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+     margin: 0;
+     background-color:#f3f3f3;
+     padding: 0;
+ }
+
+ a:hover {
+     background-color: inherit;
+     color: inherit;
+ }
+
+.mui-appbar {
+    background-color: #191919;
+    padding: 30px 20px 0px 20px;
+}
+
+    .mui-appbar img {
+        height: 30px;
+
+    }
+
+
+.container {
+    max-width: 70em;
+    margin: 0 auto;
+}
+
+.left {
+    float: left;
+}
+
+    /* .left {
+        position: relative;
+        top: 15px;
+    } */
+
+.right {
+    float: right;
+    position: relative;
+    bottom: 3px;
+}
+
+.mui-btn {
+    text-transform: none;
+}
+
+.mui-btn--primary {
+    background-color: #0288d1;
+}
+
+a:visited {
+    color: inherit;
+}
+
+.low-key-link {
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+
+    .low-key-link:hover {
+        background-color: none;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+    }
