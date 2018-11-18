@@ -5,11 +5,26 @@ class LawsuitsController < ApplicationController
   # GET /lawsuits.json
   def index
     @lawsuits = Lawsuit.all
+    @user = current_holder || current_admin
   end
 
   # GET /lawsuits/1
   # GET /lawsuits/1.json
   def show
+  end
+
+  def distribute
+      suit = Lawsuit.find_by(id: params['format'])
+      suit.claims.each do |c|
+          puts "C: " << c.to_s
+          puts "user: " << c.user.to_s
+          holder = c.user
+          holder.balance = holder.balance + c.stake
+          holder.save!
+      end
+      suit.completed = TRUE
+      suit.save!
+      redirect_to '/'
   end
 
   # GET /lawsuits/new

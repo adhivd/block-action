@@ -1,4 +1,4 @@
-<%= form_with(model: lawsuit, local: true) do |form| %>
+<%= form_with(model: lawsuit, local: true, class: 'mui-form') do |form| %>
   <% if lawsuit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(lawsuit.errors.count, "error") %> prohibited this lawsuit from being saved:</h2>
@@ -11,42 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="mui-textfield">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="mui-textfield">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
-  <div class="field">
+  <div class="mui-textfield">
     <%= form.label :eligibility %>
     <%= form.text_area :eligibility %>
   </div>
 
-  <div class="field">
+  <div class="mui-textfield">
     <%= form.label :completed %>
     <%= form.check_box :completed %>
   </div>
 
-  <div class="field">
+  <div class="mui-textfield">
     <%= form.label :settlement %>
     <%= form.number_field :settlement %>
   </div>
 
-  <div class="field">
+  <div class="mui-textfield">
     <%= form.label :deadline %>
     <%= form.date_select :deadline %>
   </div>
 
-  <div class="field">
+  <div class="mui-textfield">
     <%= form.label :user_id %>
     <%= form.text_field :user_id %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Submit", :class => "mui-btn mui-btn--primary"%>
   </div>
 <% end %>

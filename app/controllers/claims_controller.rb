@@ -25,6 +25,7 @@ class ClaimsController < ApplicationController
   # POST /claims.json
   def create
     @claim = Claim.new(claim_params)
+    puts claim_params
 
     respond_to do |format|
       if @claim.save
@@ -69,6 +70,8 @@ class ClaimsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def claim_params
+        puts 'CHECKING PARAMS'
+        puts params
       params.require(:claim).permit(:stake, :user_id, :lawsuit_id)
     end
 end

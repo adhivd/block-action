@@ -1,5 +1,82 @@
 
-</p>
+<section>
+    <div id="profile" class="mui-panel">
+        <%= image_tag path="user.png" %>
+        <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+        <h4>Email: <%= @user.email %></h4>
+        <% if holder_signed_in? %>
+            <h4>Wallet: <%= @user.wallet %></h4>
+            <h4>Balance: <%=@user.balance %></h4>
+        <% end %>
+    </div>
+    <div id="content" class="mui-panel">
+        <% if holder_signed_in? %>
+        <% if @userClaims.length != 0 %>
+        <table class="mui-table mui-table--bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Stake</th>
+              <th>Deadline</th>
+              <th>Distributed?</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @userClaims.each do |c| %>
+                  <tr>
+                    <td><%= c.lawsuit.name %></td>
+                    <td><%= c.stake %></td>
+                    <td><%= c.lawsuit.deadline %></td>
+                    <td><%= c.lawsuit.completed %></td>
+                    <td>
+                        <%= link_to "View Suit", c.lawsuit, :class => 'mui-btn mui-btn--primary mui-btn--small' %>
+                    </td>
+                  </tr>
+              <% end %>
+          </tbody>
+        </table>
+        <% else %>
+            <p>You currently don't have any lawsuits</p>
+        <% end %>
+        <%= link_to "Browse class action suits", "lawsuits#index", :class => 'mui-btn mui-btn--primary' %>
 
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+        <% else %>
+
+            <% if @adminLawsuits.length != 0 %>
+            <table class="mui-table mui-table--bordered">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th># of Claims</th>
+                  <th>Avg. Settlement</th>
+                  <th>Deadline</th>
+                  <th>$ Distributed</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @adminLawsuits.each do |suit| %>
+                      <tr>
+                        <td><%= suit.name %></td>
+                        <td><%= suit.claims.length %></td>
+                        <td>$<%= suit.settlement %></td>
+                        <td><%= suit.deadline %></td>
+                        <td><%= suit.completed %></td>
+                        <td>
+                            <%= link_to "Distribute Funds", distribute_path(suit), method: :patch, :class => 'mui-btn mui-btn--primary mui-btn--small' %>
+                            <%= link_to "View Suit", suit, :class => 'mui-btn mui-btn--primary mui-btn--small' %>
+                        </td>
+                      </tr>
+                  <% end %>
+              </tbody>
+            </table>
+            <% else %>
+                <p>You currently don't have any lawsuits</p>
+            <% end %>
+            <%= link_to "Browse class action suits", "lawsuits#index", :class => 'mui-btn mui-btn--primary' %>
+
+        <% end %>
+    </div>
+
+</section>

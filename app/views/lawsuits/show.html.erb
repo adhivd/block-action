@@ -30,10 +30,8 @@
   <%= @lawsuit.deadline %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @lawsuit.user %>
-</p>
-
+<% if @user == @lawsuit.user %>
 <%= link_to 'Edit', edit_lawsuit_path(@lawsuit) %> |
-<%= link_to 'Back', lawsuits_path %>
+<% end %>
+<%= link_to 'Back to All Lawsuits', lawsuits_path, :class => 'mui-btn mui-btn--primary'%>
+<%= link_to 'Back to Dashboard', '/', :class => 'mui-btn mui-btn--primary'%>

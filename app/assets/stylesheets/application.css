@@ -65,7 +65,7 @@
 }
 
 a:visited {
-    color: inherit;
+    color: none;
 }
 
 .low-key-link {
@@ -84,3 +84,39 @@ a:visited {
     input:-webkit-autofill:active {
         transition: background-color 5000s ease-in-out 0s;
     }
+section {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: 20px auto;
+    grid-gap: 15px;
+}
+
+section > div {
+    display: inline-block;
+}
+
+section .mui-panel {
+
+}
+
+#profile {
+    border-top: 2px solid #00bcd4;
+    text-align: center;
+}
+
+#profile img {
+    width: 80px;
+}
+
+#content {
+    border-top: 2px solid #0288d1
+}
+
+@media (max-width: 50em) {
+    section {
+        margin: 20px auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+    }
+}

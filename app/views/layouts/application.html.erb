@@ -16,15 +16,15 @@
     <div class="mui-appbar mui--appbar-min-height">
         <div class="container">
             <div class="left">
-                <%= image_tag path="logo.png" %>
+                <a href="/"><%= image_tag path="logo.png" %></a>
             </div>
             <div class="right">
                 <% if holder_signed_in? %>
-                  HOLDER: Welcome, <strong><%= current_holder.email[0..8] %></strong>.
+                  HOLDER: Welcome, <strong><%= current_holder.first_name %></strong>.
                   <%= link_to 'Edit profile', edit_holder_registration_path, :class => 'mui-btn mui-btn--primary mui-btn--small' %>
                   <%= link_to "Logout", destroy_holder_session_path, method: :delete, :class => 'mui-btn mui-btn--primary mui-btn--small'  %>
                 <% elsif admin_signed_in? %>
-                admin: Logged in as <strong><%= current_admin.email %></strong>.
+                Admin: Welcome, <strong><%= current_admin.first_name %></strong>.
                 <%= link_to 'Edit profile', edit_admin_registration_path, :class => 'mui-btn mui-btn--primary mui-btn--small' %>
                 <%= link_to "Logout", destroy_admin_session_path, method: :delete, :class => 'mui-btn mui-btn--primary mui-btn--small'  %>
                 <% else %>
