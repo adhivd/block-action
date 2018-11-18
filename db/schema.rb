@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_18_095756) do
+ActiveRecord::Schema.define(version: 2018_11_18_101430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "claims", force: :cascade do |t|
+    t.integer "stake"
+    t.bigint "user_id"
+    t.bigint "lawsuit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lawsuit_id"], name: "index_claims_on_lawsuit_id"
+    t.index ["user_id"], name: "index_claims_on_user_id"
+  end
 
   create_table "lawsuits", force: :cascade do |t|
     t.string "name"
@@ -41,5 +51,7 @@ ActiveRecord::Schema.define(version: 2018_11_18_095756) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "claims", "lawsuits"
+  add_foreign_key "claims", "users"
   add_foreign_key "lawsuits", "users"
 end

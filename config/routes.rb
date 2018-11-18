@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :claims
   resources :lawsuits
   get 'dashboard/index'
   devise_for :holders

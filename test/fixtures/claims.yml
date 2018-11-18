@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stake: 1
+  user: one
+  lawsuit: one
+
+two:
+  stake: 1
+  user: two
+  lawsuit: two
