@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lawsuit.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lawsuit.description %>
+</p>
+
+<p>
+  <strong>Eligibility:</strong>
+  <%= @lawsuit.eligibility %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @lawsuit.completed %>
+</p>
+
+<p>
+  <strong>Settlement:</strong>
+  <%= @lawsuit.settlement %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @lawsuit.deadline %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @lawsuit.user %>
+</p>
+
+<%= link_to 'Edit', edit_lawsuit_path(@lawsuit) %> |
+<%= link_to 'Back', lawsuits_path %>

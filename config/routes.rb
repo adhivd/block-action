@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :lawsuits
   get 'dashboard/index'
   devise_for :holders
   devise_for :admins
