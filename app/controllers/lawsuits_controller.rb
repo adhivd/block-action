@@ -39,7 +39,9 @@ class LawsuitsController < ApplicationController
   # POST /lawsuits
   # POST /lawsuits.json
   def create
+      @user = current_holder || current_admin
     @lawsuit = Lawsuit.new(lawsuit_params)
+    @lawsuit.user_id = @user.id
 
     respond_to do |format|
       if @lawsuit.save

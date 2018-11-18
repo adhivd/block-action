@@ -28,9 +28,10 @@
         <td><%= link_to 'Show', lawsuit, :class => 'mui-btn mui-btn--primary mui-btn--small' %></td>
         <td><%= link_to 'Edit', edit_lawsuit_path(lawsuit), :class => 'mui-btn mui-btn--primary mui-btn--small' %></td>
         <td><%= link_to 'Destroy', lawsuit, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'mui-btn mui-btn--primary mui-btn--small' %></td>
+        <% elsif @user.type == 'Holder' %>
+        <td><%= link_to 'Register Claim', registerclaim_path({lawsuit: lawsuit}), method: :post, :class => 'mui-btn mui-btn--primary mui-btn--small' %></td>
         <% else %>
         <td><%= link_to 'View', lawsuit, :class => 'mui-btn mui-btn--primary mui-btn--small' %></td>
-        <td><%= link_to 'Register Claim', registerclaim_path({lawsuit: lawsuit}), method: :post, :class => 'mui-btn mui-btn--primary mui-btn--small' %></td>
         <% end %>
       </tr>
     <% end %>

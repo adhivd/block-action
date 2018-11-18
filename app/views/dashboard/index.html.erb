@@ -73,6 +73,8 @@
             </table>
             <% else %>
                 <p>You currently don't have any lawsuits</p>
+                <%= link_to 'New Lawsuit', new_lawsuit_path, :class => 'mui-btn mui-btn--primary'  %>
+
             <% end %>
             <%= link_to "Browse class action suits", "lawsuits#index", :class => 'mui-btn mui-btn--primary' %>
 
